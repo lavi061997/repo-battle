@@ -10,13 +10,18 @@ import { RepoService } from '@app/core/services/repo.service';
 
     <div class="column is-half" *ngFor="let repo of battleRepos">
       <div class="repo-container">
-        <img [src]="repo.avatar">
+        <img [src]="repo.url">
         <div class="caption">{{ repo.caption }}</div>
       </div>
 
       <a class="button is-info" (click)="voteOnRepo(repo.id)">
         Vote!
       </a>
+      <br>
+      <a class="button is-info" (click)="openRepo(repo.link)">
+        Open Repo!
+      </a>
+
 
     </div>
   </div>
@@ -28,7 +33,7 @@ import { RepoService } from '@app/core/services/repo.service';
     }
     img{
       width: 100%;
-      height: 300px;
+      height: 450px;
       border-radius:3px;
     }
     .caption {
@@ -68,12 +73,19 @@ export class BattleComponent implements OnInit {
   }
 
   voteOnRepo(id){
+      console.log('helo');
     this.repoService.vote(id)
       .subscribe(data => {
         //load a new battle
+        console.log(data);
         this.getNewBattle();
 
       });
+  }
+
+  openRepo(link){
+      if(link)
+        window.open(link, '_blank', 'resizable=yes');
   }
 
 }

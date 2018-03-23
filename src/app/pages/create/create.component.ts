@@ -78,7 +78,7 @@ export class CreateComponent implements OnInit {
   }
 
   saveRepo(){
-    this.repoService.save(this.randomRepo.id, this.randomRepo.name, this.randomRepo.avatar, this.caption)
+    this.repoService.save(this.randomRepo.id, this.randomRepo.name, this.randomRepo.avatar, this.caption, this.randomRepo.html_url)
       .subscribe(data => {
         this.getRandomRepo();
         this.caption = '';

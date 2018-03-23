@@ -15,8 +15,9 @@ import { RepoService } from '@app/core/services/repo.service';
         <div class="repo-container">
         {{ repo.name }}
         <a [href]="repo.html_url">
-          <img [src]="repo.avatar">
+          <img [src]="repo.url">
         </a>
+        <br>
           <div class="caption">{{ caption }}</div>
         </div>
         </td>
@@ -47,7 +48,7 @@ import { RepoService } from '@app/core/services/repo.service';
 
     img{
         width:100%;
-        max-height:800px;
+        max-height:300px;
         border-radius:3px;
     }
     `

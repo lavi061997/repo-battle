@@ -13,8 +13,8 @@ export class RepoService {
 
   //Store a Repo
 
-  save(id: string, name: string, url: string, caption: string): Observable<any>{
-    return this.http.post(this.apiUrl, {id, name, url, caption, votes: 0});
+  save(id: string, name: string, url: string, caption: string, link:string): Observable<any>{
+    return this.http.post(this.apiUrl, {id, name, url, caption, link, votes: 0});
   }
 
   //Battles
